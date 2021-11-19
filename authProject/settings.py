@@ -96,13 +96,15 @@ WSGI_APPLICATION = 'authProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Colocar las credenciales de la base de datos postgresql de la app de Heroku
+# Creada por Beimer
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.postgresql_psycopg2',
-        'NAME':     'd2t16gge764afo',
-        'USER':     'sphjwuulthmibk',
-        'PASSWORD': '524294e08c4baab441a0b14d7a89e4c5b48eda604d37f41a613181ebba18b6b7',
-        'HOST':     'ec2-44-194-54-186.compute-1.amazonaws.com',
+        'NAME':     'dfpse2d8f5sr6q',
+        'USER':     'lzndtcsscqhvdb',
+        'PASSWORD': '47fca243ace980c4e31afdbba9589192e6e0348b0ea91f22dca9cd54b9c3de05',
+        'HOST':     'ec2-3-208-157-78.compute-1.amazonaws.com',
         'PORT':     '5432',
         'TEST': {'MIRROR': 'default',},
     }
