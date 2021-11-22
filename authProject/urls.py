@@ -16,7 +16,7 @@ Including another URLconf
 from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 from authApp import views
-from authApp import views.userview
+from authApp import views
 
 
 # Endpoints
