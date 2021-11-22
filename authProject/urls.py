@@ -16,12 +16,17 @@ Including another URLconf
 from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 from authApp import views
+from authApp import views.userview
+
 
 # Endpoints
+# Agregar el endpoint que liste todos los usuarios
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
     path('verifyToken/', views.VerifyTokenView.as_view()),
-    path('user/', views.UserCreateView.as_view()),
-    path('user/<int:pk>/', views.UserDetailView.as_view()),
+    # path('user/<int:pk>/', views.UserDetailView.as_view()),
+    
+    path('users/', views.UserView.as_view()),
+    path('users/<int:pk>/', views.UserView.as_view()),
 ]
