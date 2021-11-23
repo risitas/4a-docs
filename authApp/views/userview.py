@@ -17,7 +17,7 @@ class UserView(views.APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         
-        tokenData = {"Username":request.data["username"],
+        tokenData = {"username":request.data["username"],
                     "password":request.data["password"]}
         tokenSerializer = TokenObtainPairSerializer(data=tokenData)
         tokenSerializer.is_valid(raise_exception=True)
@@ -61,12 +61,12 @@ class UserView(views.APIView):
         queryset = User.objects.all()
         serializer_class = UserSerializer
         permission_classes = (IsAuthenticated,) 
-        id_user_body = request.data.pop("id_user")
+        id_user_body = request.data.pop("id")
         token = request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         valid_data = tokenBackend.decode(token,verify=False)
         
-        if valid_data['user_id'] != id_user_body:
+        if valid_data['id'] != id_user_body:
             stringResponse = {'detail':'Unauthorized Request'}
             return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
 
