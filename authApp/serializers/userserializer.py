@@ -5,7 +5,7 @@ from authApp.models.user import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'Username', 'Name','Last name','Email','Phone','Address','Password', 'Password verification']
+        fields = ['id', 'username', 'name','last_name','email','phone','address','password', 'password_verification']
 
     
     def create(self, validated_data):

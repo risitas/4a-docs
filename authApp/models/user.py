@@ -30,14 +30,14 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     
     id = models.BigAutoField(primary_key=True)
-    username = models.CharField('Username', max_length = 15, unique=True)
-    name = models.CharField('Name', max_length = 30,default="")
-    last_name = models.CharField('Last name', max_length = 30,default="")
-    email = models.EmailField('Email', max_length = 100)
-    phone = models.CharField('Phone', max_length = 30,default="")
-    address= models.CharField('Address', max_length= 80,default="")
-    password = models.CharField('Password', max_length = 256, blank=False,default="123")
-    password_verification = models.CharField('Password verification', max_length = 256,blank=False,default="123")
+    username = models.CharField('user_name', max_length = 15, unique=True)
+    name = models.CharField('name', max_length = 30)
+    last_name = models.CharField('last_name', max_length = 30)
+    email = models.EmailField('email', max_length = 100)
+    phone = models.CharField('phone', max_length = 30)
+    address= models.CharField('address', max_length= 80)
+    password = models.CharField('password', max_length = 256, blank=False)
+    password_verification = models.CharField('password_verification', max_length = 256,blank=False)
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
