@@ -25,7 +25,6 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
     path('verifyToken/', views.VerifyTokenView.as_view()),
-    # path('user/<int:pk>/', views.UserDetailView.as_view()),
     
     path('users/', views.UserView.as_view()),
     path('users/<int:pk>/', views.UserView.as_view()),
