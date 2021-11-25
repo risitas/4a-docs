@@ -35,9 +35,16 @@ class UserView(views.APIView):
         if valid_data['user_id'] != kwargs['pk']:
             stringResponse = {'detail':'Unauthorized Request'}
             return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
+<<<<<<< HEAD
         
         #return Response(UserSerializer().User.objects.filter(id=int(kwargs['pk'])).first())
         return super().get(request, *args, **kwargs)
+=======
+        user = User.objects.filter(id=int(kwargs['pk'])).first()
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+
+>>>>>>> GestionUsuario
  # Update (actualizar usuario)
     def put(self, request, *args, **kwargs):
     
