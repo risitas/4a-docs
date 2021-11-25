@@ -37,7 +37,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField('phone', max_length = 30)
     address= models.CharField('address', max_length= 80)
     password = models.CharField('password', max_length = 256, blank=False)
-    password_verification = models.CharField('password_verification', max_length = 256,blank=False)
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
