@@ -10,9 +10,9 @@ from authApp.models.user import User
 
 class UserView(views.APIView):
 # CRUD USER
-    serializer_class = UserSerializer
-    queryset = User.objects.all()
-    permission_classes = (IsAuthenticated,)
+    #serializer_class = UserSerializer
+    #queryset = User.objects.all()
+    #permission_classes = (IsAuthenticated,)
 # Create (Crear Usuario) 
     def post(self, request, *args, **kwargs):
         serializer = UserSerializer(data=request.data)
