@@ -44,13 +44,13 @@ class UserView(views.APIView):
     
         permission_classes = (IsAuthenticated,)
         id_user_body = request.data.pop("id")
-        token = request.META.get('HTTP_AUTHORIZATION')[7:]
-        tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
-        valid_data = tokenBackend.decode(token,verify=False)
+        # token = request.META.get('HTTP_AUTHORIZATION')[7:]
+        # tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
+        # valid_data = tokenBackend.decode(token,verify=False)
 
-        if valid_data['id'] != id_user_body:
-            stringResponse = {'detail':'Unauthorized Request'}
-            return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
+        # if valid_data['id'] != id_user_body:
+        #     stringResponse = {'detail':'Unauthorized Request'}
+        #     return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
 
         usuario= User.objects.filter(id=kwargs['pk']).first()
         serializer = UserSerializer(usuario, data=request.data)
@@ -77,24 +77,23 @@ class UserView(views.APIView):
         #usuario= User.objects.filter(id=kwargs['pk']).first()
         usuario= User.objects.filter(id=int(id_user_body)).first()
         usuario.delete()
-        stringResponse = {'detail':'Registro liminado'}
+        stringResponse = {'detail':'Registro Eliminado'}
         return Response(stringResponse)
 
 
 # listar usuarios
 class AllUsers(views.APIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
+        queryset = User.objects.all()
+        serializer = UserSerializer(queryset, many=True)
         token = request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         valid_data = tokenBackend.decode(token,verify=False)
         
-        if valid_data['id'] != kwargs['pk']:
-            stringResponse = {'detail':'Unauthorized Request'}
-            return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
+        # if valid_data['id'] != kwargs['pk']:
+        #     stringResponse = {'detail':'Unauthorized Request'}
+        #     return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
         
-        return super().get(request, *args, **kwargs)
+        return Response(data=serializer.data)

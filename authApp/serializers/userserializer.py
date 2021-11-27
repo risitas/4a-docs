@@ -23,4 +23,3 @@ class UserSerializer(serializers.ModelSerializer):
                     'phone': user.phone,
                     'address': user.address,                    
                 }
-
