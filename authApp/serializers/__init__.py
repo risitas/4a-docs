@@ -1,1 +1,0 @@
-from .userserializer import UserSerializer
