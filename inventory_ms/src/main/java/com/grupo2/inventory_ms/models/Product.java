@@ -3,15 +3,16 @@ package com.grupo2.inventory_ms.models;
 import org.springframework.data.annotation.Id;
 import java.util.Date;
 
-public class product {
-    //atributos o variables
+public class Product {
+
     private String code;
     private String name;
     private String especification;
-    private int    amount ;
-    private int    price;
+    private int amount;
+    private int price;
 
-    public product(String code, String name, String especification, int amount, int price) {
+    public Product(String code, String name, String especification, int amount, int price) {
+        super();
         this.code = code;
         this.name = name;
         this.especification = especification;
@@ -61,12 +62,8 @@ public class product {
 
     @Override
     public String toString() {
-        return "product{" +
-                "  code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", especification='" + especification + '\'' +
-                ", amount=" + amount +
-                ", price=" + price +
-                '}';
+        return "Product \n{\n\ncode : " + code + "\nname : " + name + "\nespecification : " + especification + "\namount : " + amount
+                + "\nprice : " + price + "\n\n}\n";
     }
+
 }
