@@ -20,4 +20,5 @@ public class InventoryModel { //coleccion inventario(coleccion producto)
 
     private Set<ProductModel> products;
 
+
 }
