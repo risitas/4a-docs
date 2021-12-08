@@ -135,7 +135,8 @@ public class InventoryServicesImpl implements InventoryService {
         InventoryModel inventoryModel = inventoryModelRepository.findById(id_inventory).orElse(null);
         if(inventoryModel != null){
 
-            inventoryModel.getProducts().add(productModel);
+          //  inventoryModel.getProducts().add(productModel);
+            inventoryModelRepository.findById(id_inventory).get().getProducts().add(productModel);
             return productModel;
 
         }
