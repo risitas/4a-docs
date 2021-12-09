@@ -25,8 +25,8 @@ public interface InventoryService {
 
     ProductModel productSave(String id_inventory, ProductModel productModel) ;
 
-    ProductModel productupdate(String id_inventory, ProductModel productModel);
-    void productdelete(String id_inventory, String code) ;
+    ProductModel productUpdate(String id_inventory, ProductModel productModel);
+    boolean productDelete(String id_inventory, String code) ;
 
 
 

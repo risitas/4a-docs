@@ -5,7 +5,9 @@ import com.grupo2.inventory_ms.models.InventoryModel;
 import com.grupo2.inventory_ms.models.ProductModel;
 import com.grupo2.inventory_ms.service.InventoryService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.StreamingHttpOutputMessage;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,7 +44,6 @@ public class InventoryController {
 
     @GetMapping("/findById")
     public ResponseEntity<InventoryModel> findById(@RequestParam String id) {
-        inventoryService.findById(id);
         return ResponseEntity.ok(inventoryService.findById(id));
     }
 
@@ -57,13 +58,20 @@ public class InventoryController {
 
 
     @GetMapping("/productById")
-    public ResponseEntity<ProductModel> productById(@RequestBody String id_inventory, String code) {
-        inventoryService.productById(id_inventory,code);
-        return ResponseEntity.ok( inventoryService.productById(id_inventory,code));
+    public ProductModel productById(@RequestBody ObjectNode objectNode) {
+        String id_inventory = objectNode.get("id_inventory").asText();
+        String code = objectNode.get("code").asText();
+
+        if(inventoryService.productById(id_inventory,code) != null){
+            return inventoryService.productById(id_inventory,code);
+        }
+
+        return null;
     }
 
     @PostMapping("/productSave")
-    public ResponseEntity<ProductModel> productSave(@RequestBody ObjectNode objectNode) {
+    public ResponseEntity<String> productSave(@RequestBody ObjectNode objectNode) {
+
         String id_inventory = objectNode.get("id_inventory").asText();
         ProductModel productModel = new ProductModel();
         productModel.setCode(objectNode.get("productModel").get("code").asText());
@@ -73,8 +81,57 @@ public class InventoryController {
         productModel.setSpecification(objectNode.get("productModel").get("specification").asText());
 
         ProductModel productModel1 = inventoryService.productSave(id_inventory,productModel);
+        if(productModel1 == null) {
 
-        return ResponseEntity.ok(productModel);
+            return ResponseEntity.ok("El código del producto ya existe");
+
+        }
+
+        return ResponseEntity.ok("Producto registrado");
     }
+
+    @DeleteMapping("/productDelete")
+    public ResponseEntity<String> productDelete(@RequestBody ObjectNode objectNode) {
+        String id_inventory = objectNode.get("id_inventory").asText();
+        String code = objectNode.get("code").asText();
+        boolean bandera;
+
+        bandera = inventoryService.productDelete(id_inventory,code);
+
+        if(bandera){
+            return ResponseEntity.ok("Su producto fue eliminado");
+        }else{
+            return ResponseEntity.ok("El producto no existe");
+        }
+
+    }
+
+
+
+    @PutMapping("/productUpdate")
+    public ResponseEntity<String> productUpdate(@RequestBody ObjectNode objectNode) {
+
+        String id_inventory = objectNode.get("id_inventory").asText();
+        ProductModel productModel = new ProductModel();
+        productModel.setCode(objectNode.get("productModel").get("code").asText());
+        productModel.setName(objectNode.get("productModel").get("name").asText());
+        productModel.setPrice(objectNode.get("productModel").get("price").asInt());
+        productModel.setAmount(objectNode.get("productModel").get("amount").asInt());
+        productModel.setSpecification(objectNode.get("productModel").get("specification").asText());
+
+
+        ProductModel productModel1 = inventoryService.productUpdate(id_inventory,productModel);
+        if(productModel1 == null) {
+
+            return ResponseEntity.ok("No existe el producto");
+        }
+
+
+        return ResponseEntity.ok("Su producto fue modificado satisfactoriamente");
+    }
+
+
+
+
 
 }

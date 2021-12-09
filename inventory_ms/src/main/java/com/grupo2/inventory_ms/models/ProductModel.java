@@ -13,4 +13,6 @@ public class ProductModel {
     private String specification;
     private int amount;
     private int price;
+
+
 }

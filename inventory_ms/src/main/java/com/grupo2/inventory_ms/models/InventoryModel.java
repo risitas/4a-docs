@@ -16,7 +16,6 @@ public class InventoryModel { //coleccion inventario(coleccion producto)
 
     //#Datos del usuario
     private String id_user;
-    private String user_name;
 
     private Set<ProductModel> products;
 
