@@ -28,13 +28,13 @@ class UserView(views.APIView):
 
 # Read (leer Usuario)
     def get(self, request, *args, **kwargs):
-        token = request.META.get('HTTP_AUTHORIZATION')[7:]
-        tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
-        valid_data = tokenBackend.decode(token,verify=False)
+        # token = request.META.get('HTTP_AUTHORIZATION')[7:]
+        # tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
+        # valid_data = tokenBackend.decode(token,verify=False)
         
-        if valid_data['user_id'] != kwargs['pk']:
-            stringResponse = {'detail':'Unauthorized Request'}
-            return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
+        # if valid_data['user_id'] != kwargs['pk']:
+        #     stringResponse = {'detail':'Unauthorized Request'}
+        #     return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
         user = User.objects.filter(id=int(kwargs['pk'])).first()
         serializer = UserSerializer(user)
         return Response(serializer.data)
@@ -83,14 +83,14 @@ class UserView(views.APIView):
 
 # listar usuarios
 class AllUsers(views.APIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         queryset = User.objects.all()
         serializer = UserSerializer(queryset, many=True)
-        token = request.META.get('HTTP_AUTHORIZATION')[7:]
-        tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
-        valid_data = tokenBackend.decode(token,verify=False)
+        # token = request.META.get('HTTP_AUTHORIZATION')[7:]
+        # tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
+        # valid_data = tokenBackend.decode(token,verify=False)
         
         # if valid_data['id'] != kwargs['pk']:
         #     stringResponse = {'detail':'Unauthorized Request'}
