@@ -58,9 +58,7 @@ public class InventoryController {
 
 
     @GetMapping("/productById")
-    public ProductModel productById(@RequestBody ObjectNode objectNode) {
-        String id_inventory = objectNode.get("id_inventory").asText();
-        String code = objectNode.get("code").asText();
+    public ProductModel productById(@RequestParam String id_inventory,@RequestParam String code) {
 
         if(inventoryService.productById(id_inventory,code) != null){
             return inventoryService.productById(id_inventory,code);
@@ -83,7 +81,7 @@ public class InventoryController {
         ProductModel productModel1 = inventoryService.productSave(id_inventory,productModel);
         if(productModel1 == null) {
 
-            return ResponseEntity.ok("El código del producto ya existe");
+            return ResponseEntity.ok("El código del inventario no existe");
 
         }
 
