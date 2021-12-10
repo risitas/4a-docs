@@ -2,7 +2,7 @@
 
     <div class="logIn_user">
         <div class="container_logIn_user">
-            <h2>Inventarios</h2>
+            <h2>Iniciar sesión</h2>
 
             <form v-on:submit.prevent="processLogInUser" >
                 <input type="text" v-model="user.username" placeholder="Usuario">
@@ -83,8 +83,8 @@ export default {
     .container_logIn_user {
         border: 3px solid  #283747;
         border-radius: 10px;
-        width: 100%;
-        height: 100%;
+        width: 25%;
+        height: 60%;
         
         display: flex;
         flex-direction: column;

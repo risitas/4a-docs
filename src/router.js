@@ -7,8 +7,8 @@ import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
 import Account from './components/Account.vue'
 import Transaction from './components/Transaction.vue'
-import LoginApp from './components/LoginApp.vue'
-import TproductApp from './components/TproductApp.vue'
+/* import LoginApp from './components/LoginApp.vue'
+import TproductApp from './components/TproductApp.vue' */
 
 const routes = [{
         path: '/user/logIn',
@@ -39,7 +39,7 @@ const routes = [{
         name: "transaction",
         component: Transaction,
         meta: { requiresAuth: true }
-    },
+    }/* ,
     {
         path: '/user/LoginApp',
         name: "LoginApp",
@@ -51,7 +51,7 @@ const routes = [{
         name: "TproductApp",
         component: TproductApp,
         meta: { requiresAuth: false }
-    }
+    } */
 ];
 
 const router = createRouter({
