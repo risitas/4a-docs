@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "d7617703-4efb-4808-9c80-2202b41028b9",
+		"name": "inventory-product/desplegada",
+		"description": "Carpeta donde están las pruebas del despliegue de productos y inventarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "inventario - desplegado",
+			"item": [
+				{
+					"name": "findAll - despliegue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/findAll",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save-despliegue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"id_inventory\" : 54,\r\n    \"name_inventory\": \"mintic\",\r\n    \"date_creation\" : \"02-04-2021\",\r\n    \"id_user\" : \"01-u\",\r\n    \"user_name\": \"yosi\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/save",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update - despliegue",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"id_inventory\" : \"01-v\",\r\n    \"name_inventory\": \"FacSAluQ-555\",\r\n    \"date_creation\" : \"02-04-2021\",\r\n    \"id_user\" : \"01-u\",\r\n    \"user_name\": \"yosi\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/update",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete  - despliegue",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/delete?id=01-v",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "01-v"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById - despliegue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/findById?id=5",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"findById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Pruebas de inventario en despliegue"
+		},
+		{
+			"name": "producs - despliegue",
+			"item": [
+				{
+					"name": "allProduct - despliegue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/allProduct?id=05-v",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"allProduct"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "05-v"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productById - despliegue",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"id_inventory\":\"05-v\",\r\n\"code\":\"14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/productById",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productSave - despliegue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_inventory\":\"04-v\",\r\n    \"productModel\":{\r\n\r\n     \"code\":\"1285\",\r\n    \"name\":\"cochhhghhhe\",\r\n    \"specification\":\"rohghjo\",\r\n    \"amount\":50,\r\n     \"price\":250000\r\n\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/productSave",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productSave"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productDelete - despliegue",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"id_inventory\":\"04-v\",\r\n\"code\":\"20g-p\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/productDelete",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productDelete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productUpdate - despliegue",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_inventory\":\"04-v\",\r\n    \"productModel\":{\r\n\r\n     \"code\":\"1285\",\r\n    \"name\":\"Reloj36\",\r\n    \"specification\":\"rojo\",\r\n    \"amount\":100,\r\n     \"price\":25000\r\n\r\n    }\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-ms-2.herokuapp.com/productUpdate",
+							"protocol": "https",
+							"host": [
+								"inventory-ms-2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productUpdate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Pruebas de productos en despliegue"
+		}
+	]
+}

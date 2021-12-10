@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "b50c74f5-d5c9-4505-9c7c-c76c349d50f5",
+		"name": "Inventario",
+		"description": "Prueba local del inventario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"id_inventory\" : 5,\n    \"name_inventory\": \"mintic\",\n    \"date_creation\" : \"02-04-2021\",\n    \"id_user\" : \"01-u\",\n    \"user_name\": \"yosi\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"save"
+					]
+				},
+				"description": "Para crear un inventario"
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"id_inventory\" : \"03-v\",\n    \"name_inventory\": \"FacSAluQ\",\n    \"date_creation\" : \"02-04-2021\",\n    \"id_user\" : \"01-u\",\n    \"user_name\": \"yosi\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"save"
+					]
+				},
+				"description": "Para crear un inventario"
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/findAll",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findAll"
+					]
+				},
+				"description": "Listar todo los inventarios"
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/delete?id=02-v",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "02-v"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

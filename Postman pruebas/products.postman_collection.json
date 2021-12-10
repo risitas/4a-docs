@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "36c5ad68-12a9-4ce9-8a4b-2e93cbc7a9ac",
+		"name": "products",
+		"description": "Prueba local de productos dentro del inventario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "productById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"id_inventory\":\"05-v\",\r\n\"code\":\"14\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productById",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allProduct?id=",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/allProduct?id=05-v",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allProduct"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "05-v"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productSave",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_inventory\":\"04-v\",\r\n    \"productModel\":{\r\n\r\n     \"code\":\"128\",\r\n    \"name\":\"cochhhghhhe\",\r\n    \"specification\":\"rohghjo\",\r\n    \"amount\":50,\r\n     \"price\":250000\r\n\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productSave",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productSave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"id_inventory\":\"04-v\",\r\n\"code\":\"20g-p\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productDelete",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productDelete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_inventory\":\"04-v\",\r\n    \"productModel\":{\r\n\r\n     \"code\":\"20g-p\",\r\n    \"name\":\"Reloj36\",\r\n    \"specification\":\"rojo\",\r\n    \"amount\":100,\r\n     \"price\":25000\r\n\r\n    }\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productUpdate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productUpdate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
