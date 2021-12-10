@@ -1,10 +1,9 @@
 const usersResolver = {
     Query: {
         userDetailList: (_, __,{ dataSources, userIdToken }) => {
-            if (userId == userIdToken)
+            
                 return dataSources.authAPI.getUsers()
-            else
-                return null
+            
         },
         userDetailById: (_, { userId }, { dataSources, userIdToken }) => {
             if (userId == userIdToken)
