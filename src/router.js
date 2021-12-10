@@ -2,15 +2,21 @@ import gql from "graphql-tag";
 import { createRouter, createWebHistory } from "vue-router";
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 
+import inicio from './components/inicio.vue'
 import LogIn from './components/LogIn.vue'
 import SignUp from './components/SignUp.vue'
-import Home from './components/Home.vue'
-import Account from './components/Account.vue'
-import Transaction from './components/Transaction.vue'
+
 /* import LoginApp from './components/LoginApp.vue'
 import TproductApp from './components/TproductApp.vue' */
 
-const routes = [{
+const routes = [
+    {
+        path: '/user/inicio',
+        name: "inicio",
+        component: inicio,
+        meta: { requiresAuth: false }
+    },
+    {
         path: '/user/logIn',
         name: "logIn",
         component: LogIn,
@@ -21,37 +27,7 @@ const routes = [{
         name: "signUp",
         component: SignUp,
         meta: { requiresAuth: false }
-    },
-    {
-        path: '/user/home',
-        name: "home",
-        component: Home,
-        meta: { requiresAuth: true }
-    },
-    {
-        path: '/user/account',
-        name: "account",
-        component: Account,
-        meta: { requiresAuth: true }
-    },
-    {
-        path: '/user/transaction',
-        name: "transaction",
-        component: Transaction,
-        meta: { requiresAuth: true }
-    }/* ,
-    {
-        path: '/user/LoginApp',
-        name: "LoginApp",
-        component: LoginApp,
-        meta: { requiresAuth: false }
-    },
-    {
-        path: '/user/TproductApp',
-        name: "TproductApp",
-        component: TproductApp,
-        meta: { requiresAuth: false }
-    } */
+    }
 ];
 
 const router = createRouter({

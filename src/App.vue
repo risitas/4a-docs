@@ -5,7 +5,7 @@
   <div class="header">
       <h1> +Inventarios</h1>
       <nav class="botones">        
-        <button v-if="!is_auth" v-on:click="loadLoginApp">Inicio</button>
+        <button v-if="!is_auth" v-on:click="loadinicio">Inicio</button>
         <button v-if="!is_auth" v-on:click="loadLoginApp">Registrarse</button>
         <button v-if="!is_auth" v-on:click="loadLoginApp">Iniciar Sesion</button>
       </nav>
@@ -13,7 +13,7 @@
   </div>
   <br>
 
-  <table class="agrupar">
+     <table class="agrupar">
     <td><img src="./assets/configuration.png" alt="configuracion" class="imagen"></td>
     <td>
       <div class="parrafo">
@@ -22,7 +22,17 @@
       </div>
     </td>
 
-  </table>
+  </table>  
+
+  <div class="main-component">
+    <router-view
+      v-on:completedInicio="completedInicio"
+
+    >
+    </router-view>
+  </div>
+
+
     
 
 <!--   <div class="main-component">
@@ -150,26 +160,7 @@ export default {
     background: #E5E7E9;
     border: 1px solid #E5E7E9;
   }
-  .agrupar{
-    display: flex;
-    align-items: center;
-  }
-  .imagen{
-    border: 5px solid rgba(0, 0, 0, 0.8);
-    border-radius: 8%;
-    width: 400px;  
-    margin-left: 15%;
-    margin-top: 30%;
-  }
-  .parrafo{
-    color: aliceblue;
-    font-size: 50px;
-    text-align: center;
-    border: 10px;
-    margin-left: 10%;    
-    margin-right: 10%;
-  }
-  
+
   .main-component{
     height: 75vh;
     margin: 0%;

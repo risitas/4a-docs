@@ -2,14 +2,14 @@
 
     <div class="logIn_user">
         <div class="container_logIn_user">
-            <h2>Iniciar sesión</h2>
+            <td><img src="../assets/logologin.png" alt="logologin" class='login'></td>
 
             <form v-on:submit.prevent="processLogInUser" >
-                <input type="text" v-model="user.username" placeholder="Usuario">
+                <input type="text" v-model="user.username" placeholder="Email" class="email">
                 <br>
-                <input type="password" v-model="user.password" placeholder="Contraseña">
+                <input type="password" v-model="user.password" placeholder="Password" class="password">
                 <br>
-                <button type="submit">Iniciar Sesión</button>
+                <button type="submit">Login</button>
             </form>
         </div>
 
@@ -81,8 +81,7 @@ export default {
     }
 
     .container_logIn_user {
-        border: 3px solid  #283747;
-        border-radius: 10px;
+    
         width: 25%;
         height: 60%;
         
@@ -91,9 +90,15 @@ export default {
         justify-content: center;
         align-items: center;
     }
+    .login{
+      border: 2px solid rgba(0, 0, 0, 0.8);
+      border-radius: 8%;
+      width: 200px;
+      margin-bottom: 20%;
+    }
 
     .logIn_user h2{
-        color: #283747;
+        color: #dde5ec;
 
     }
 
@@ -109,16 +114,22 @@ export default {
         box-sizing: border-box;
         padding: 10px 20px;
         margin: 5px 0;
-
+        background-color: transparent;
         border: 1px solid #283747;
+        color: #ffffff;
+        border-radius: 10px;
+        border-color: #ffffff;
+        text-align: center;
+        
     }
+
 
     .logIn_user button{
         width: 100%;
         height: 40px;
 
-        color: #E5E7E9;
-        background: #283747;
+        color: #314686;
+        background: #ffffff;
         border: 1px solid #E5E7E9;
 
         border-radius: 5px;
@@ -128,7 +139,7 @@ export default {
 
     .logIn_user button:hover{
         color: #E5E7E9;
-        background: crimson;
+        background: #314686;
         border: 1px solid #283747;
     }
 
