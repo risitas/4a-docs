@@ -91,9 +91,8 @@ public class InventoryController {
     }
 
     @DeleteMapping("/productDelete")
-    public ResponseEntity<String> productDelete(@RequestBody ObjectNode objectNode) {
-        String id_inventory = objectNode.get("id_inventory").asText();
-        String code = objectNode.get("code").asText();
+    public ResponseEntity<String> productDelete(@RequestParam String id_inventory,@RequestParam String code) {
+
         boolean bandera;
 
         bandera = inventoryService.productDelete(id_inventory,code);
