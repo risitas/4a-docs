@@ -45,7 +45,7 @@ const inventoryTypeDefs = gql `
 
     type Query {
         inventaryList: [InventoryModel]!
-        productById(datos:ObjetoBuscarInput):ProductModel
+        productById(id_inventory:String,code:String):ProductModel
     }
 
     type Mutation{

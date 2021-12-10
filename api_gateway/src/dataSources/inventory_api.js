@@ -37,13 +37,10 @@ class InventoryAPI extends RESTDataSource {
     }
 
     //Cambiar a parametros
-    async productById(datos){
-        datos = new Object(JSON.parse(JSON.stringify(datos)));
-        return this.get(`/productById`,datos);
+    async productById(id_inventory,code){
+        return this.get(`/productById?id_inventory=${id_inventory}&code=${code}`);
     }
 
-    
- 
     async productDelete(id_inventory,code){
         return this.delete(`/productDelete?id_inventory=${id_inventory}&code=${code}`);
     }

@@ -4,9 +4,8 @@ const inventoryResolver = {
       return await dataSources.inventoryAPI.inventaryList();
     },
 
-    productById: async (_, { datos }, { dataSources }) => {
-    
-    return dataSources.inventoryAPI.productById(datos);
+    productById:async (_, { id_inventory,code }, { dataSources }) => {
+      return dataSources.inventoryAPI.productById(id_inventory,code);
   },
 
   },
