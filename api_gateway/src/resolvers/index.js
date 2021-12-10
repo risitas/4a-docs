@@ -1,11 +1,18 @@
-const accountResolver = require('./account_resolver');
-const transactionResolver = require('./transaction_resolver');
 
+/**
+ * Todo lo de inventario
+ */
+const inventoryResolver = require('./inventoryResolver');
+
+
+/**
+ * Todo lo de usuario
+ */
 const authResolver = require('./auth_resolver');
 
 
 const lodash = require('lodash');
 
-const resolvers = lodash.merge(accountResolver, transactionResolver, authResolver);
+const resolvers = lodash.merge(inventoryResolver, authResolver);
 
 module.exports = resolvers;
