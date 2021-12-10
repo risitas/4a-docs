@@ -3,10 +3,16 @@ const inventoryResolver = {
     inventaryList: async (_, __, { dataSources, userIdToken }) => {
       return await dataSources.inventoryAPI.inventaryList();
     },
+
+    productById: async (_, { datos }, { dataSources }) => {
+    
+    return dataSources.inventoryAPI.productById(datos);
+  },
+
   },
   Mutation: {
     inventorySave: async (_, { infoInventory }, { dataSources }) => {
-      //  return JSON.stringify(infoInventory);
+    
       const inventoryInput = {
         id_inventory: infoInventory.id_inventory,
         name_inventory: infoInventory.name_inventory,
@@ -39,15 +45,26 @@ const inventoryResolver = {
       return dataSources.inventoryAPI.productList(id);
     },
 
-    productById: async (_, { datos }, { dataSources }) => {
-    
-        const ObjetoBuscarInput = {
-        id_inventory: datos.id_inventory,
-        code: datos.code,
-     
+    productDelete :async (_, { id_inventory,code }, { dataSources }) => {
+      return dataSources.inventoryAPI.productDelete(id_inventory,code);
+    },
+
+    productSave :async (_, { informacion }, { dataSources }) => {
+      const ProductInput = {
+        id_inventory: informacion.id_inventory,
+        productModel: informacion.productModel
       };
-     
-      return dataSources.inventoryAPI.productById(ObjetoBuscarInput);
+
+      return dataSources.inventoryAPI.productSave(informacion);
+    },
+
+    productUpdate :async (_, { informacion }, { dataSources }) => {
+      const ProductInput = {
+        id_inventory: informacion.id_inventory,
+        productModel: informacion.productModel
+      };
+      
+      return dataSources.inventoryAPI.productUpdate(informacion);
     },
   },
 };
