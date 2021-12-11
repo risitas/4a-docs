@@ -9,6 +9,7 @@
         <button v-if="!is_auth" v-on:click="loadHome">Inicio</button>
         <button v-if="!is_auth" v-on:click="loadSignUp">Registrarse</button>
         <button v-if="!is_auth" v-on:click="loadLogIn">Iniciar Sesión</button>
+        <button v-if="!is_auth" v-on:click="loadActiveSesion">Crear Inventario</button>
       </nav>
     </div>
     <div class="main-component">
@@ -16,6 +17,7 @@
         v-on:completedLogIn="completedLogIn"
         v-on:completedSignUp="completedSignUp"
         v-on:logOut="logOut"
+        v-on:loadActiveSesion="loadActiveSesion"
       >
       </router-view>
     </div>
@@ -66,6 +68,9 @@ export default {
     loadRegister: function () {
       this.$router.push({ name: "register" });
     },
+    loadActiveSesion: function () {
+      this.$router.push({ name: "loadActiveSesion" });
+    },
   },
   created: function () {
     this.verifyAuth();
@@ -82,7 +87,7 @@ body {
 .header {
   margin: 0%;
   padding: 0;
-  width: 100%;
+  width: 90%;
   height: 10vh;
   min-height: 100px;
   color: #e5e7e9;
@@ -97,13 +102,15 @@ body {
   text-align: center;
   color: aliceblue;
   margin-top: 5%;
-  margin-left: 4%;
-  font-size: 400%;
+  margin-left: 10%;
+  font-size: 300%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .header nav {
   height: 100%;
   width: 30%;
+  margin-left: 3px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -111,9 +118,9 @@ body {
 }
 
 .header nav button {
-  color: #e5e7e9;
+  color: #FFFFFF;
   background: #314686;
-  border: 1px solid #e5e7e9;
+  border: 1px solid #FFFFFF;
 
   border-radius: 5px;
   padding: 10px 20px;
@@ -121,8 +128,9 @@ body {
 
 .header nav button:hover {
   color: #283747;
-  background: #e5e7e9;
-  border: 1px solid #e5e7e9;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  
 }
 
 .main-component {

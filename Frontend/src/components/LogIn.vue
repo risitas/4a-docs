@@ -2,9 +2,10 @@
   <div class="logIn_user">
     <div class="container_logIn_user">
       <h2>Iniciar sesión</h2>
-
-      <div class="prueba3">
-       <img src="https://img.icons8.com/external-bearicons-blue-bearicons/64/000000/external-login-call-to-action-bearicons-blue-bearicons-1.png"/>
+      <div class="imagen">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1802/1802965.png"
+        />
       </div>
       <form v-on:submit.prevent="processLogInUser">
         <input type="text" v-model="user.username" placeholder="Username" />
@@ -57,9 +58,11 @@ export default {
 <style>
 .logIn_user {
   margin: 0;
+  margin-top: 50px;
   padding: 0%;
   height: 100%;
   width: 100%;
+  
 
   display: flex;
   justify-content: center;
@@ -76,8 +79,9 @@ export default {
   align-items: center;
 }
 
-.logIn_user h2 {
-  color: #283747;
+.container_logIn_user h2 {
+  color: #ffffff;
+  margin-bottom: -99px;
 }
 .logIn_user form {
   width: 70%;
@@ -98,28 +102,31 @@ export default {
   width: 100%;
   height: 40px;
 
-  color: #e5e7e9;
-  background: #283747;
-  border: 1px solid #e5e7e9;
+  color: #283747;
+  background: #ffffff;
+  border: 1px solid #283747;
 
   border-radius: 5px;
   padding: 10px 25px;
   margin: 5px 0;
+  margin-top: 20px;
+
+  font-size: small;
 }
 
 .logIn_user button:hover {
   color: #e5e7e9;
-  background: crimson;
+  background: #283747;
   border: 1px solid #283747;
 }
 
-.prueba3 {
- position: absolute;
-width: 176px;
-height: 175px;
-left:990px;
-top: 202px;
-mix-blend-mode: lighten;
-border: 1px solid #000000;
+.imagen img {
+  position: absolute;
+  width: 176px;
+  height: 175px;
+  left: 600px;
+  top: 135px;
+  mix-blend-mode: lighten;
+  border: 1px solid #000000;
 }
 </style>

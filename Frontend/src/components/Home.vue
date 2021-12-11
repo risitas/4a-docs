@@ -1,92 +1,78 @@
-<template> 
- 
-     <table class="agrupar">
+<template>
+  <table class="contimg">
     <td>
-      <img
-        src="../assets/inventario.png" alt="configuracion" class="imagen"
-      />
+      <img src="../assets/inventario.png" alt="configuracion" class="imagen" />
     </td>
     <td>
-        <div class="prueba1">
-      <div class="prueba2">
-        <p>
-          Sistema de gestion de inventarios desarrollado para satisfacer las
-          necesidades de control
-        </p>
-        <p>Control y gestión de productos para todos los clientes</p>
-      </div>
+      <div class="contParrafo">
+        <div class="parrafo">
+          <p>
+            Sistema de gestion de inventarios desarrollado
+            para satisfacer las necesidades de control
+          </p>
+          <p>Control y gestión de productos <br>
+            para todos los clientes</p>
+        </div>
       </div>
     </td>
   </table>
- 
 </template> 
  
-<script> 
- 
-export default { 
-    name: "Home", 
- 
-    data: function(){ 
-        return { 
-            username: localStorage.getItem('username') || "none" 
-        } 
-    } 
-} 
- 
+<script>
+export default {
+  name: "Home",
+
+  data: function () {
+    return {
+      username: localStorage.getItem("username") || "none",
+    };
+  },
+};
 </script> 
  
 
-<style> 
-.agrupar {
-  display: flex;
-  align-items: center;
-}
+<style>
 .imagen {
-
   width: 400px;
   margin-left: 30%;
   margin-top: 30%;
 }
-.parrafo {
+  .contimg {
+    display: flex;
+    align-items: center;
+    
+  }
 
-  margin: auto;
+
+.contParrafo {
+  position: absolute;
+  width: 668px;
+  height: 402px;
+  left: 650px;
+  top: 210px;
+
+  background: #c4c4c426;
+  border-radius: 65px;
+}
+
+.parrafo {
   color: aliceblue;
-  font-size: 50px;
+  
   text-align: center;
+  padding:10px;
   border: 10px;
   margin-left: 10%;
-  margin-right: 10%;
-}
+  margin-right: 5%;
 
-.prueba1{
-position: absolute;
-width: 668px;
-height: 402px;
-left: 1200px;
-top: 220px;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 570;
+  font-size: 30px;
+  line-height: 34px;
+  /* or 113% */
 
-background: rgba(196, 196, 196, 0.15);
-border-radius: 65px;
-}
-
-.prueba2{
-position: absolute;
-width: 574px;
-height: 252px;
-left: 41px;
-top: 27px;
-
-font-family: Montserrat;
-font-style: italic;
-font-weight: bold;
-font-size: 30px;
-line-height: 34px;
-/* or 113% */
-
-text-align: right;
-letter-spacing: -2px;
-text-transform: uppercase;
-
-color: #FFFFFF;
+  text-align: right;
+  letter-spacing: -2px;
+  text-transform: uppercase;
 }
 </style> 
