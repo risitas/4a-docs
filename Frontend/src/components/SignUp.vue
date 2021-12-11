@@ -10,7 +10,7 @@
         <input type="text" v-model="userInput.name" placeholder="Name" />
         <br />
 
-        <input type="text" v-model="userInput.las_tname" placeholder="Lastname" />
+        <input type="text" v-model="userInput.last_name" placeholder="Lastname" />
         <br />
 
         <input type="email" v-model="userInput.email" placeholder="Email" />
@@ -52,16 +52,17 @@ export default {
 
   methods: {
     processSignUp: async function () {
+        console.log(this.userInput);
       await this.$apollo
         .mutate({
-          mutation: gql`
-            mutation($userInput: SignUpInput) {
-              signUpUser(userInput: $userInput) {
-                refresh
-                access
-              }
-            }
-          `,
+            mutation: gql`
+                mutation($userInput: SignUpInput) {
+                    signUpUser(userInput: $userInput) {
+                        refresh
+                        access
+                    }
+                }
+            `,
           variables: {
             userInput: this.userInput,
           },
